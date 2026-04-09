@@ -1,0 +1,33 @@
+{
+  "name": "DischargeGuard Monitoring Agent",
+  "description": "Conducts post-discharge patient check-ins with diagnosis-specific symptom questions. Extracts clinical entities from patient responses using Amazon Comprehend Medical NLP.",
+  "version": "1.0.0",
+  "url": "http://localhost:8001",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    {
+      "id": "patient-checkin",
+      "name": "Patient Check-In",
+      "description": "Initiate a diagnosis-specific symptom check-in for a post-discharge patient. Returns structured check-in results with extracted clinical entities and red flags.",
+      "tags": ["monitoring", "symptoms", "check-in", "post-discharge", "talk"],
+      "examples": [
+        "Conduct a check-in for patient P001 with heart failure on day 3",
+        "Check on patient P002 recovering from pneumonia on day 7"
+      ]
+    },
+    {
+      "id": "symptom-extraction",
+      "name": "Symptom Entity Extraction",
+      "description": "Extract clinical entities from free-text patient symptom reports using Amazon Comprehend Medical.",
+      "tags": ["nlp", "comprehend-medical", "entity-extraction"],
+      "examples": [
+        "Extract symptoms from: 'I gained 3 pounds overnight and my ankles are puffy'"
+      ]
+    }
+  ]
+}

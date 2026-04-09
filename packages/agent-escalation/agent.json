@@ -1,0 +1,33 @@
+{
+  "name": "DischargeGuard Escalation Agent",
+  "description": "Triggers escalation workflows when patient risk exceeds thresholds. Creates care team tasks (Task output) and FHIR Communication resources (Transaction output) for clinical escalation.",
+  "version": "1.0.0",
+  "url": "http://localhost:8003",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    {
+      "id": "care-team-task",
+      "name": "Create Care Team Task",
+      "description": "Create an actionable task for the care team when patient risk exceeds threshold. Includes urgency, clinical summary, and recommended actions.",
+      "tags": ["task", "escalation", "care-team"],
+      "examples": [
+        "Create urgent task for Maria Garcia, critical risk, weight gain and edema",
+        "Escalate patient P001 with score 78 to care coordinator"
+      ]
+    },
+    {
+      "id": "fhir-communication",
+      "name": "Generate FHIR Communication",
+      "description": "Generate a FHIR R4 Communication resource for care coordination escalation (Transaction output).",
+      "tags": ["transaction", "fhir", "communication", "escalation"],
+      "examples": [
+        "Generate FHIR Communication for urgent escalation of heart failure patient"
+      ]
+    }
+  ]
+}

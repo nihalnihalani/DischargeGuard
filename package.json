@@ -1,0 +1,31 @@
+{
+  "name": "dischargeguard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Post-discharge care coordination agent — MCP Server + A2A Agents",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev:mcp": "npm run dev --workspace=packages/mcp-server",
+    "dev:monitoring": "npm run dev --workspace=packages/agent-monitoring",
+    "dev:risk": "npm run dev --workspace=packages/agent-risk-scoring",
+    "dev:escalation": "npm run dev --workspace=packages/agent-escalation",
+    "dev:orchestrator": "npm run dev --workspace=packages/agent-orchestrator",
+    "dev:ui": "npm run dev --workspace=packages/demo-ui",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "infra:up": "docker-compose up -d",
+    "infra:down": "docker-compose down"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "tsx": "^4.19.2",
+    "@types/node": "^22.10.0"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  }
+}

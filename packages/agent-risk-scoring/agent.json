@@ -1,0 +1,33 @@
+{
+  "name": "DischargeGuard Risk Scoring Agent",
+  "description": "Ingests patient check-in data, cross-references against clinical deterioration patterns, calculates composite readmission risk scores, and maintains the real-time risk dashboard.",
+  "version": "1.0.0",
+  "url": "http://localhost:8002",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    {
+      "id": "risk-assessment",
+      "name": "Risk Assessment",
+      "description": "Score readmission risk from check-in data. Returns composite risk score (0-100), risk tier (low/medium/high/critical), and escalation flag.",
+      "tags": ["risk", "lace", "scoring", "table"],
+      "examples": [
+        "Score risk for patient with heart failure, day 3, weight gain 3lbs, swollen ankles",
+        "Assess risk based on: red flags detected - edema, weight gain"
+      ]
+    },
+    {
+      "id": "risk-dashboard",
+      "name": "Risk Dashboard",
+      "description": "Generate a multi-patient risk dashboard table showing current risk scores and trends.",
+      "tags": ["dashboard", "table", "monitoring"],
+      "examples": [
+        "Show me the current risk dashboard for all monitored patients"
+      ]
+    }
+  ]
+}

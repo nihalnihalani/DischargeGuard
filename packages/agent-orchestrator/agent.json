@@ -1,0 +1,42 @@
+{
+  "name": "DischargeGuard Orchestrator",
+  "description": "Orchestrates the DischargeGuard post-discharge care workflow. Routes requests to specialized agents (Monitoring, Risk Scoring, Escalation) via A2A protocol. Single entry point for all DischargeGuard operations.",
+  "version": "1.0.0",
+  "url": "http://localhost:8004",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    {
+      "id": "full-checkin-pipeline",
+      "name": "Full Check-In Pipeline",
+      "description": "Run the complete post-discharge check-in workflow: monitoring → risk scoring → escalation (if needed). Produces all 5T outputs.",
+      "tags": ["orchestration", "pipeline", "check-in", "all-5ts"],
+      "examples": [
+        "Conduct a day-3 check-in for Maria Garcia with heart failure",
+        "Run full monitoring pipeline for patient P001"
+      ]
+    },
+    {
+      "id": "discharge-plan",
+      "name": "Generate Discharge Plan",
+      "description": "Generate a personalized discharge plan and medication reconciliation for a newly discharged patient.",
+      "tags": ["discharge", "planning", "template"],
+      "examples": [
+        "Generate discharge plan for patient P001 from encounter E001"
+      ]
+    },
+    {
+      "id": "risk-dashboard",
+      "name": "Risk Dashboard",
+      "description": "Show the current risk dashboard for all monitored patients.",
+      "tags": ["dashboard", "table", "risk"],
+      "examples": [
+        "Show me the current risk dashboard"
+      ]
+    }
+  ]
+}

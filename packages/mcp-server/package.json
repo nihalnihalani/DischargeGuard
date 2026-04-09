@@ -1,0 +1,26 @@
+{
+  "name": "@dischargeguard/mcp-server",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "bin": {
+    "dischargeguard-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "node --test dist/**/*.test.js"
+  },
+  "dependencies": {
+    "@dischargeguard/shared": "*",
+    "@google/genai": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
