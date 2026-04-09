@@ -30,14 +30,14 @@ export async function fhirSearch<T>(
   let pages = 0;
 
   while (url && pages < maxPages) {
-    const bundle = await fhirFetch<FhirBundle>(
+    const bundle: FhirBundle = await fhirFetch<FhirBundle>(
       url.replace(FHIR_BASE_URL + "/", "")
     );
     const entries = bundle.entry ?? [];
     for (const entry of entries) {
       if (entry.resource) results.push(entry.resource as T);
     }
-    const nextLink = bundle.link?.find((l) => l.relation === "next");
+    const nextLink: { relation: string; url: string } | undefined = bundle.link?.find((l: { relation: string; url: string }) => l.relation === "next");
     url = nextLink?.url ?? null;
     pages++;
   }

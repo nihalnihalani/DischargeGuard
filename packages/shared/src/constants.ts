@@ -141,30 +141,6 @@ export interface MonitoringProtocol {
   measurements: string[];
 }
 
-/** Maps SNOMED condition codes to monitoring protocols */
-export const MONITORING_PROTOCOLS: Record<string, MonitoringProtocol> = {
-  // Heart failure
-  "42343007": HEART_FAILURE_PROTOCOL,
-  "88805009": HEART_FAILURE_PROTOCOL,
-  "84114007": HEART_FAILURE_PROTOCOL,
-
-  // COPD
-  "185086009": COPD_PROTOCOL,
-  "13645005": COPD_PROTOCOL,
-
-  // Pneumonia
-  "233604007": PNEUMONIA_PROTOCOL,
-  "422805009": PNEUMONIA_PROTOCOL,
-
-  // Diabetes
-  "44054006": DIABETES_PROTOCOL,
-  "73211009": DIABETES_PROTOCOL,
-
-  // Stroke / cerebrovascular
-  "230690007": STROKE_PROTOCOL,
-  "422504002": STROKE_PROTOCOL,
-};
-
 export const HEART_FAILURE_PROTOCOL: MonitoringProtocol = {
   label: "Heart Failure",
   dailySymptoms: [
@@ -258,6 +234,30 @@ export const STROKE_PROTOCOL: MonitoringProtocol = {
     "Loss of balance or coordination",
   ],
   measurements: ["Blood pressure if home monitor available"],
+};
+
+/** Maps SNOMED condition codes to monitoring protocols */
+export const MONITORING_PROTOCOLS: Record<string, MonitoringProtocol> = {
+  // Heart failure
+  "42343007": HEART_FAILURE_PROTOCOL,
+  "88805009": HEART_FAILURE_PROTOCOL,
+  "84114007": HEART_FAILURE_PROTOCOL,
+
+  // COPD
+  "185086009": COPD_PROTOCOL,
+  "13645005": COPD_PROTOCOL,
+
+  // Pneumonia
+  "233604007": PNEUMONIA_PROTOCOL,
+  "422805009": PNEUMONIA_PROTOCOL,
+
+  // Diabetes
+  "44054006": DIABETES_PROTOCOL,
+  "73211009": DIABETES_PROTOCOL,
+
+  // Stroke / cerebrovascular
+  "230690007": STROKE_PROTOCOL,
+  "422504002": STROKE_PROTOCOL,
 };
 
 // ─── Risk Scoring Weights ────────────────────────────────────────────────────

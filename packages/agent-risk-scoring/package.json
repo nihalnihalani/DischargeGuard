@@ -2,7 +2,14 @@
   "name": "@dischargeguard/agent-risk-scoring",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "main": "./dist/main.js",
+  "exports": {
+    ".": {
+      "import": "./dist/main.js",
+      "types": "./dist/main.d.ts"
+    }
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch src/main.ts",

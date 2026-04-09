@@ -33,7 +33,7 @@ server.registerTool(
   },
   async (input) => {
     const result = await generateDischargePlan(input);
-    return result;
+    return { content: result.content, structuredContent: result.structuredContent as unknown as Record<string, unknown> };
   }
 );
 
@@ -51,7 +51,7 @@ server.registerTool(
   },
   async (input) => {
     const result = await calculateReadmissionRisk(input);
-    return result;
+    return { content: result.content, structuredContent: result.structuredContent as unknown as Record<string, unknown> };
   }
 );
 
@@ -69,7 +69,7 @@ server.registerTool(
   },
   async (input) => {
     const result = await reconcileMedications(input);
-    return result;
+    return { content: result.content, structuredContent: result.structuredContent as unknown as Record<string, unknown> };
   }
 );
 
