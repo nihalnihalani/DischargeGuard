@@ -17,7 +17,9 @@
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "infra:up": "docker-compose up -d",
-    "infra:down": "docker-compose down"
+    "infra:down": "docker-compose down",
+    "seed": "bash scripts/seed-demo-patient.sh",
+    "start:all": "bash start-all.sh"
   },
   "devDependencies": {
     "typescript": "^5.7.3",
